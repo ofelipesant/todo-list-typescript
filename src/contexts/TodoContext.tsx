@@ -1,18 +1,18 @@
 import { createContext, useState } from "react";
 
+type TodoContextType = {
+    todo:string[],
+    setTodo: (newState:[]) => void,
+    inputValue: string,
+    setInputValue: (newState:string) => void
+}
+
 const initialValue = {
     todo:[],
     setTodo: () => {},
     inputValue:'',
     setInputValue: () => {}
 
-}
-
-type TodoContextType = {
-    todo:string[],
-    setTodo: (newState:[]) => void,
-    inputValue: string,
-    setInputValue: (newState:string) => void
 }
 
 interface props{
