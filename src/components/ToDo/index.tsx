@@ -1,27 +1,48 @@
 import { useContext } from "react"
 import { TodoContext } from "../../contexts/TodoContext"
+import { todoListData } from "../../contexts/TodoContext"
 
-export default function Todo(){
-    const {inputValue, setInputValue, todo, setTodo} = useContext(TodoContext)
+export default function Todo() {
+    const { inputValue, setInputValue, todo, setTodo } = useContext(TodoContext)
 
-    type inputElement = React.FormEvent<HTMLInputElement> 
+    type inputElement = React.FormEvent<HTMLInputElement>
+    type formElement = React.FormEvent
 
-    const handleInput = ( event:inputElement) => {
-        setInputValue(event.currentTarget.value)  
+    const handleInput = (event: inputElement) => {
+        setInputValue(event.currentTarget.value)
     }
 
-    const addTodo = () => {
-        todo.push(inputValue)
-        console.log(todo)
+    const handleSubmit = (event:formElement) => {
+        event.preventDefault()
+        addTask(inputValue)
+        setInputValue("")
     }
-    
-    return(
+
+    const addTask = (inputValue:string) => {
+       const idTask = Math.floor(Math.random() * 1000)
+       let newTask:todoListData = {
+           id: idTask,
+           task: inputValue,
+           complete: false
+       }
+       setTodo([...todo, newTask])
+       console.log(todo)
+    }
+
+    return (
         <section className="to-do-component">
-            <div className="input-content">
-                <label htmlFor="input">O que você precisa fazer hoje?</label>
-                <input type={"text"} className="to-do-input" name="input" onChange={handleInput}/>
-            </div>
-            <button className="to-do-button" onClick={addTodo}>ADICIONAR</button>
+            <form className="to-do-form" onSubmit={handleSubmit}>
+                <div className="input-content">
+                    <label htmlFor="input">O que você precisa fazer hoje?</label>
+                    <input 
+                    type={"text"} 
+                    className="to-do-input" 
+                    name="input" 
+                    onChange={handleInput}
+                    value={inputValue} />
+                </div>
+                <button className="to-do-button" type="submit">ADICIONAR</button>
+            </form>
         </section>
     )
 }

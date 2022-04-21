@@ -7,7 +7,11 @@ export default function List(){
     return(
         <section className="list-items">
             <div className="list">
-            
+                {todo && todo.map((element) => {
+                    return(
+                        <div key={element.id} className="item">{element.task}</div>
+                    )
+                })}
             </div>
         </section>
     )

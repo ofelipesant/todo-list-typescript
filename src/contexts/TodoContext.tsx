@@ -1,34 +1,41 @@
 import { createContext, useState } from "react";
 
-type TodoContextType = {
-    todo:string[],
-    setTodo: (newState:[]) => void,
-    inputValue: string,
-    setInputValue: (newState:string) => void
-}
-
-const initialValue = {
-    todo:[],
-    setTodo: () => {},
-    inputValue:'',
-    setInputValue: () => {}
-
-}
-
 interface props{
     children: JSX.Element | JSX.Element[]
 } 
 
+export interface todoListData {
+    id:number
+    task:string,
+    complete:boolean
+}
+
+  type TodoContextType = {
+    todo:Array<todoListData>,
+    setTodo: React.Dispatch<React.SetStateAction<todoListData[]>>
+    inputValue: string,
+    setInputValue: (newState:string) => void
+}
+
+
+const initialValue = {
+    todo:[{id:0, task:'', complete:false}],
+    setTodo: () => {},
+    inputValue:'',
+    setInputValue: () => {}
+
+}  
+
 export const TodoContext = createContext<TodoContextType>(initialValue)
 
 export function TodoContextProvider  ( {children}:props ){ 
-    const [todo, setTodo] = useState(initialValue.todo)
-    const [inputValue, setInputValue] = useState(initialValue.inputValue)
+    const [todo, setTodo] = useState<todoListData[]>([])
+    const [inputValue, setInputValue] = useState<string>('')
 
     return(
         <TodoContext.Provider value={{
             todo,
-            setTodo,
+            setTodo, 
             inputValue,
             setInputValue
         }}>
