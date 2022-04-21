@@ -1,0 +1,47 @@
+@use '../../assets/sass/mixins'
+@use '../../assets/sass/variables'
+    
+.list-items
+    @include mixins.section-reset
+    min-height: 100px
+    max-height: 350px
+    overflow: auto
+    padding: 10px
+
+    .item
+        display: flex
+        flex-direction: row
+
+        width: 100%
+        color: white
+
+        .item-container
+            display: flex
+            flex-direction: row
+            align-items: center
+            position: relative
+            width: 100%
+            margin-bottom: 9px
+            padding: 6px 0
+            cursor: pointer
+
+            .item-content
+                padding: 0 10px
+                width: 100%
+                font-size: 16px
+            
+            .btn
+                @include mixins.reset-btn
+                transition: .4s
+                
+            .check:hover
+                color: variables.$green
+            
+            .edit:hover
+                color: variables.$blue
+            
+            .trash:hover
+                color: variables.$red
+        
+        .item-container:hover
+            border-bottom: solid 1px #b7b7a43f

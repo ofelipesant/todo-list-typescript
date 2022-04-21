@@ -39,9 +39,9 @@ export default function Todo() {
                     className="to-do-input" 
                     name="input" 
                     onChange={handleInput}
-                    value={inputValue} />
+                    value={inputValue}
+                    autoComplete="off" />
                 </div>
-                <button className="to-do-button" type="submit">ADICIONAR</button>
             </form>
         </section>
     )

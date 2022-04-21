@@ -1,0 +1,1 @@
+{"version":3,"sourceRoot":"","sources":["../sass/variables.sass","../../components/Rodape/rodape.sass","../sass/app.sass"],"names":[],"mappings":"AAAQ;AAAA;ACER;EACI;EACA;EACA;EACA;EAEA;EACA;EACA,kBDLY;ECMZ;EACA;EACA;;AAEA;EACI;EACA;EACA;;AAEJ;EACI;;;ACfR;EACI;EACA;EACA;EACA,aFRQ;;;AEUZ;EACI,kBFTO;EEUP;EACA;EACA;;;AAEJ;EACI;EAEA;EACA;EACA","file":"app.css"}

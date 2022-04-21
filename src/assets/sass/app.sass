@@ -1,0 +1,24 @@
+@use './variables'
+@import '../../components/Cabecalho/cabecalho'
+@import '../../components/Rodape/rodape'
+@import '../../components/ToDo/to-do'
+@import '../../components/List/list'
+
+*
+    padding: 0
+    margin: 0
+    block-size: border-box
+    font-family: variables.$text-font
+
+body
+    background-color: variables.$bg-color
+    width: 100%
+    min-height: 100vh
+    position: relative
+
+main
+    min-height: 50vh
+
+    display: flex
+    flex-direction: column
+    align-items: center
